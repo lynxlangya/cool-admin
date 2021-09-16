@@ -1,9 +1,9 @@
 export const revisePath = (path: string) => {
 	if (!path) {
-		return "";
+		return '';
 	}
 
-	if (path[0] == "/") {
+	if (path[0] == '/') {
 		return path;
 	} else {
 		return `/${path}`;
@@ -11,7 +11,7 @@ export const revisePath = (path: string) => {
 };
 
 export function firstMenu(list: Array<any>) {
-	let path = "";
+	let path = '';
 
 	const fn = (arr: Array<any>) => {
 		arr.forEach((e: any) => {
@@ -27,19 +27,19 @@ export function firstMenu(list: Array<any>) {
 
 	fn(list);
 
-	return path || "/404";
+	return path || '/404';
 }
 
 export function createLink(url: string, id?: string) {
-	const link = document.createElement("link");
+	const link = document.createElement('link');
 	link.href = url;
-	link.type = "text/css";
-	link.rel = "stylesheet";
+	link.type = 'text/css';
+	link.rel = 'stylesheet';
 	if (id) {
 		link.id = id;
 	}
 
 	setTimeout(() => {
-		document.getElementsByTagName("head").item(0)?.appendChild(link);
+		document.getElementsByTagName('head').item(0)?.appendChild(link);
 	}, 0);
 }

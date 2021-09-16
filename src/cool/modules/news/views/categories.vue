@@ -10,6 +10,7 @@
 			<cl-flex1 />
 			<!-- 关键字搜索 -->
 			<cl-search-key />
+			<cl-adv-btn :props="{ type: 'primary' }" />
 		</el-row>
 
 		<el-row>
@@ -43,12 +44,17 @@
 import { defineComponent, inject, reactive } from 'vue';
 import { CrudLoad, Upsert, Table } from 'cl-admin-crud-vue3/types';
 import { useRefs } from '/@/core';
+import { useStore } from 'vuex';
 
 export default defineComponent({
 	setup() {
 		const { refs, setRefs } = useRefs();
 		// 请求服务
 		const service = inject<any>('service');
+		console.log(service);
+		console.log(`%c --news--`, 'color: #4CAF50; font-weight: bold');
+		const store = useStore();
+		console.log(store);
 
 		// 新增、编辑配置
 		const upsert = reactive<Upsert>({
@@ -134,8 +140,6 @@ export default defineComponent({
 		// crud 加载
 		function onLoad({ ctx, app }: CrudLoad) {
 			// 绑定 service
-			console.log(service);
-			console.log(`%c -----`, 'color: #4CAF50; font-weight: bold');
 			ctx.service(service.newsCategoriesService).done();
 			app.refresh();
 		}

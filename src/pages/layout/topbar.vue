@@ -67,6 +67,7 @@ export default defineComponent({
 
 		// 应用信息
 		const app = computed<any>(() => store.getters.app);
+		console.log(app);
 
 		// 用户信息
 		const userInfo = computed<any>(() => store.getters.userInfo);

@@ -6,7 +6,7 @@
 			background-color="transparent"
 			@select="onSelect"
 		>
-			<el-menu-item v-for="(item, index) in list" :key="index" :index="`${index}`">
+			<el-menu-item v-for="(item, i) in list" :key="i" :index="`${index}`">
 				<icon-svg v-if="item.icon" :name="item.icon" :size="18" />
 				<span>{{ item.name }}</span>
 			</el-menu-item>

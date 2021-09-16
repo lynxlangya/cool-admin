@@ -1,6 +1,6 @@
-import { BaseService, Service } from "/@/core";
+import { BaseService, Service } from '/@/core';
 
-@Service("base/open")
+@Service('base/open')
 class Open extends BaseService {
 	/**
 	 * 用户登录
@@ -11,8 +11,8 @@ class Open extends BaseService {
 	 */
 	userLogin({ username, password, captchaId, verifyCode }: any) {
 		return this.request({
-			url: "/login",
-			method: "POST",
+			url: '/login',
+			method: 'POST',
 			data: {
 				username,
 				password,
@@ -31,7 +31,7 @@ class Open extends BaseService {
 	 */
 	captcha({ height, width }: any) {
 		return this.request({
-			url: "/captcha",
+			url: '/captcha',
 			params: {
 				height,
 				width
@@ -45,7 +45,7 @@ class Open extends BaseService {
 	 */
 	refreshToken(token: string) {
 		return this.request({
-			url: "/refreshToken",
+			url: '/refreshToken',
 			params: {
 				refreshToken: token
 			}

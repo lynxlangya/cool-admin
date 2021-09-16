@@ -105,12 +105,12 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import { isDev } from "/@/config/env";
-import { isArray, cloneDeep } from "/@/core/utils";
+import { mapGetters } from 'vuex';
+import { isDev } from '/@/config/env';
+import { isArray, cloneDeep } from '/@/core/utils';
 
 export default {
-	name: "cl-theme",
+	name: 'cl-theme',
 
 	props: {
 		list: Array
@@ -123,49 +123,49 @@ export default {
 			},
 			desc: {
 				visible: false,
-				color: "",
-				conf: ""
+				color: '',
+				conf: ''
 			},
 			themes: [
 				{
-					label: "钴蓝",
-					name: "blue",
-					color: "#4165d7"
+					label: '钴蓝',
+					name: 'blue',
+					color: '#4165d7'
 				},
 				{
-					label: "极黑",
-					name: "black",
-					color: "#2f3447"
+					label: '极黑',
+					name: 'black',
+					color: '#2f3447'
 				},
 				{
-					label: "果绿",
-					name: "green",
-					color: "#51C21A"
+					label: '果绿',
+					name: 'green',
+					color: '#51C21A'
 				},
 				{
-					label: "酱紫",
-					name: "purple",
-					color: "#d0378d"
+					label: '酱紫',
+					name: 'purple',
+					color: '#d0378d'
 				}
 			],
 			isDev,
 			form: {
-				name: "",
+				name: '',
 				conf: {
 					showAMenu: false,
 					showRouteNav: true,
 					showProcess: true
 				},
 				theme: {
-					color: "",
-					url: ""
+					color: '',
+					url: ''
 				}
 			}
 		};
 	},
 
 	computed: {
-		...mapGetters(["app", "modules", "browser"]),
+		...mapGetters(['app', 'modules', 'browser']),
 
 		themeList() {
 			return isArray(this.list) ? this.list : this.themes;
@@ -183,7 +183,7 @@ export default {
 		form: {
 			deep: true,
 			handler(val) {
-				this.$store.commit("UPDATE_APP", val);
+				this.$store.commit('UPDATE_APP', val);
 			}
 		}
 	},
@@ -199,7 +199,7 @@ export default {
 
 		onAMenuChange() {
 			setTimeout(() => {
-				this.$store.commit("SET_MENU_LIST");
+				this.$store.commit('SET_MENU_LIST');
 			}, 0);
 		},
 
@@ -211,17 +211,17 @@ export default {
 
 			this.$message.success(`切换主题：${label}`);
 
-			const theme = document.getElementById("theme-style");
-			const style = theme || document.createElement("link");
+			const theme = document.getElementById('theme-style');
+			const style = theme || document.createElement('link');
 
-			style.href = `${this.modules.theme.options.sourceUrl || "/theme/"}${name}.css`;
+			style.href = `${this.modules.theme.options.sourceUrl || '/theme/'}${name}.css`;
 
 			if (!theme) {
-				style.type = "text/css";
-				style.rel = "stylesheet";
-				style.id = "theme-style";
+				style.type = 'text/css';
+				style.rel = 'stylesheet';
+				style.id = 'theme-style';
 
-				document.getElementsByTagName("head").item(0).appendChild(style);
+				document.getElementsByTagName('head').item(0).appendChild(style);
 			}
 
 			// 设置主题色和路径
@@ -229,7 +229,7 @@ export default {
 			this.form.theme.url = style.href;
 
 			// 设置 css 变量
-			document.getElementsByTagName("body")[0].style.setProperty("--color-primary", color);
+			document.getElementsByTagName('body')[0].style.setProperty('--color-primary', color);
 		},
 
 		// 打开修改说明

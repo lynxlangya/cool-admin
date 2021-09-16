@@ -1,13 +1,13 @@
-import { BaseService, Service } from "/@/core";
+import { BaseService, Service } from '/@/core';
 
-@Service("base/comm")
+@Service('base/comm')
 class Common extends BaseService {
 	/**
 	 * 文件上传模式
 	 */
 	uploadMode() {
 		return this.request({
-			url: "/uploadMode"
+			url: '/uploadMode'
 		});
 	}
 
@@ -19,8 +19,8 @@ class Common extends BaseService {
 	 */
 	upload(params: any) {
 		return this.request({
-			url: "/upload",
-			method: "POST",
+			url: '/upload',
+			method: 'POST',
 			params
 		});
 	}
@@ -30,8 +30,8 @@ class Common extends BaseService {
 	 */
 	userLogout() {
 		return this.request({
-			url: "/logout",
-			method: "POST"
+			url: '/logout',
+			method: 'POST'
 		});
 	}
 
@@ -43,7 +43,7 @@ class Common extends BaseService {
 	 */
 	userInfo() {
 		return this.request({
-			url: "/person"
+			url: '/person'
 		});
 	}
 
@@ -56,8 +56,8 @@ class Common extends BaseService {
 	 */
 	userUpdate(params: any) {
 		return this.request({
-			url: "/personUpdate",
-			method: "POST",
+			url: '/personUpdate',
+			method: 'POST',
 			data: {
 				...params
 			}
@@ -72,7 +72,7 @@ class Common extends BaseService {
 	 */
 	permMenu() {
 		return this.request({
-			url: "/permmenu"
+			url: '/permmenu'
 		});
 	}
 }
