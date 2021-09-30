@@ -412,9 +412,12 @@ export default defineComponent({
 		function onUpsertSubmit(_: boolean, data: any, { next }: any) {
 			let departmentId = data.departmentId;
 
+			/** 部门id不存在 */
 			if (!departmentId) {
+				/** 取选中的部门 */
 				departmentId = selects.dept.id;
 
+				/** 未取到，取第一个 */
 				if (!departmentId) {
 					departmentId = dept.value[0].id;
 				}
