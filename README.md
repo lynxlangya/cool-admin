@@ -63,7 +63,6 @@ yarn config set sass-binary-site http://npm.taobao.org/mirrors/node-sass
 ## 运行应用程序
 
 安装过程完成后，运行以下命令启动服务。您可以在浏览器中预览网站 [http://localhost:9000](http://localhost:9000)
-test-test
 
 ```shell
 yarn dev
